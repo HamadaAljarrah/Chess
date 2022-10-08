@@ -1,5 +1,6 @@
 package com.example.chessgame.model.piece;
 
+import com.example.chessgame.model.Board;
 import com.example.chessgame.model.movement.IMove;
 import com.example.chessgame.model.movement.KnightMove;
 

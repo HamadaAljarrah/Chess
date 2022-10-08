@@ -1,9 +1,5 @@
 package com.example.chessgame.model;
 
-import com.example.chessgame.model.movement.PawnMove;
-import com.example.chessgame.model.piece.Color;
-import com.example.chessgame.model.piece.NonePiece;
-import com.example.chessgame.model.piece.Pawn;
 import com.example.chessgame.model.piece.Piece;
 
 public class MoveState {

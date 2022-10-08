@@ -18,6 +18,7 @@ public class GameUI extends GridPane {
     private final Game model;
     private final Controller controller;
     private final EventHandlers eventHandler;
+
     public GameUI(Game model) {
         this.model = model;
         this.controller = new Controller(model, this);

@@ -1,6 +1,5 @@
 package com.example.chessgame.model;
 
-import com.example.chessgame.model.piece.NonePiece;
 import com.example.chessgame.model.piece.Piece;
 
 import java.util.List;
@@ -10,7 +9,7 @@ public class Game {
     private final MoveState moveState;
 
     public Game() {
-        this.board = new Board();
+        this.board = Board.getInstance();
         this.moveState = new MoveState();
     }
 
@@ -18,8 +17,6 @@ public class Game {
         Piece pieceToHold = board.getPieceByIndex(index);
         moveState.setSrc(index);
         moveState.setPieceHeld(pieceToHold);
-        System.out.println(moveState.getPieceHeld());
-
     }
 
     private Piece dropPiece(Index index){
@@ -38,7 +35,6 @@ public class Game {
         }
         else {
             Piece pieceToDrop = dropPiece(index);
-
             if(pieceToDrop.isLegalMove(moveState.getSrc(), moveState.getDest())){
                 board.removePieceFromBlock(moveState.getSrc());
                 board.addPieceToBlock(moveState.getDest(), pieceToDrop);

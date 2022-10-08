@@ -1,6 +1,7 @@
 package com.example.chessgame.model.piece;
 
 
+import com.example.chessgame.model.Board;
 import com.example.chessgame.model.movement.QueenMove;
 
 public class Queen extends Piece{

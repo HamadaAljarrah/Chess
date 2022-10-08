@@ -5,28 +5,26 @@ import com.example.chessgame.model.piece.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Board {
+public  class Board {
+    private static Board instance;
     private final List<List<Block>> blocks;
 
-    public Board() {
+    private Board() {
         this.blocks = new ArrayList<>(8);
         resetBoard();
     }
 
+    public static Board getInstance(){
+        if(instance == null){
+            instance = new Board();
+        }
+        return instance;
+    }
     public void resetBoard(){
         blocks.clear();
         fillWithBlocks();
         fillWithPieces();
     }
-//    public void movePiece(Index src, Index dest){
-//        Index srcIndex = new Index(src.getRow(), src.getColumn());
-//        Index destIndex = new Index(dest.getRow(), dest.getColumn());
-//        Piece pieceToMove = getPieceByIndex(srcIndex);
-//        if(pieceToMove != null){
-//            getBlockByIndex(destIndex).setPiece(pieceToMove);
-//            getBlockByIndex(srcIndex).removePiece();
-//        }
-//    }
 
     public void removePieceFromBlock(Index index){
         blocks.get(index.getRow()).get(index.getColumn()).removePiece();
@@ -66,8 +64,8 @@ public class Board {
     }
     private void fillWithPieces(){
         for (int i = 0; i < 8; i++) {
-            blocks.get(1).get(i).setPiece(new Pawn(Color.BLACK));
-            blocks.get(6).get(i).setPiece(new Pawn(Color.WHITE));
+            blocks.get(1).get(i).setPiece(new Pawn(Color.BLACK, this));
+            blocks.get(6).get(i).setPiece(new Pawn(Color.WHITE, this));
             if(i == 0 || i == 7) {
                 blocks.get(0).get(i).setPiece(new Rook(Color.BLACK));
                 blocks.get(7).get(i).setPiece(new Rook(Color.WHITE));

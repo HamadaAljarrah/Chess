@@ -5,13 +5,12 @@ import com.example.chessgame.model.Board;
 import com.example.chessgame.model.Index;
 import com.example.chessgame.model.piece.Color;
 import com.example.chessgame.model.piece.King;
-import com.example.chessgame.model.piece.Piece;
 
 public class BoardTest {
     private Board board;
 
     public BoardTest() {
-        this.board = new Board();
+        this.board = Board.getInstance();
     }
 
     public void testPrint(){this.board.print();}

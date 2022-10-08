@@ -1,5 +1,6 @@
 package com.example.chessgame.model;
 
+
 public class Index {
     private  int row;
     private  int column;
@@ -28,5 +29,13 @@ public class Index {
     @Override
     public String toString() {
         return "[I: " + row + " " + column + "]\n";
+    }
+
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Index theObject)) return false;
+        return column == theObject.getColumn() && row == theObject.getRow();
     }
 }
